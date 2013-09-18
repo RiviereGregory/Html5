@@ -5,15 +5,17 @@
 <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BOOTSTRAP 3</title>
-<link href='http://fonts.googleapis.com/css?family=Kavoon' rel='stylesheet' type='text/css'>
-<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Kavoon' rel='stylesheet'>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
 
 <!--[if IE 7]>
 	<link href="css/font-awesome-ie7.min.css" rel="stylesheet" type="text/css">
 <! [endif]-->
 
-<link href='css/main.css' rel='stylesheet' type='text/css'>
+<link href='css/main.css' rel='stylesheet'>
+
+<link href='css/select2.css' rel='stylesheet'>
 
 </head>
 
@@ -143,6 +145,19 @@
 				</div>
 			</div>
 			<div class="row">
+				<div class="col-lg-5" id="villegroup">
+					<label   class="control-label" for="villeid">Entrez votre ville :</label>
+					<select  name="ville" id="villeid">
+						<option></option>
+						<option value="1">Marseille</option>
+						<option value="2">Lyon</option>
+						<option value="3">Aix</option>
+						<option value="4">Aubagne</option>
+					</select>
+					<span id="villehelp" class="help-block hide">Veuillez choisir votre ville</span>
+				</div>
+			</div>
+			<div class="row">
 				<div id="messagegroup" class="form-group col-lg-5">
 				      <label class="control-label" for="messageid">Votre message : </label>
 				      <textarea class="form-control" placeholder="Veuillez saisir votre message" name="message" id="messageid"></textarea>
@@ -169,7 +184,8 @@
 <br />
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
-<script language="JavaScript" src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/select2.js"></script>
 
 <!-- script jquery pour le système à quatre onglets-->
 <script type="text/javascript">
@@ -177,7 +193,14 @@
 	
 	// Permet de n'executer le code que si le fichier jquery est chargé
 	j(document).ready(function(){
-	
+		
+		// Pour select2
+		j("#villeid").select2({
+			width:300,
+			placeholder:"Veuillez sélectionner une ville",
+			allowClear: true		
+		});
+		
 		// Envoie un message dans une balise html lorsque l'on click sur le bouton2
 		j('#button2').on('click', function(){
 			j('#message').html('<h1>c\'est jQuery qui m\'a créé</h1>');
@@ -189,6 +212,14 @@
 			j('#message').text('bouton 1');
 			// Permet de decacher le bouton 1
 			j('#button1').removeClass('hide');
+		});
+		
+		// Permet d'afficher un popup lorsque l'on selectionne une nouvelle item
+		j('#villeid').on('change',function(){
+			// Affiche la value
+			alert(j(this).val());
+			// Affiche le text de l'item
+			alert(j("#villeid option:selected").text() );
 		});
 	
 		// Permet d'avoir un popup lorsque l'on click sur le bouton1
