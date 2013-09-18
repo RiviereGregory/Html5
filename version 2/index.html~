@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOOTSTRAP 3</title>
+<link href='http://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700,900|Kavoon' rel='stylesheet' type='text/css'>
+<link href="css/bootstap.min.css" rel="stylesheet" type="text/css">
+<link href='css/main.css' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+<div>
+	<div id="zone1" class="row">
+		<div class="row2">
+			<p id="paragraphe">Ceci est un texte</p>
+		</div>
+
+	</div>
+	
+	<div id="zone2" class="row row2">
+		<div class="row2">
+			<p id="paragraphe2">Ceci est un texte</p>
+		</div>
+
+	</div>
+	
+	<div class="content">
+		Ceci est un texte content
+	</div>
+	
+</div>
+
+<script language="JavaScript" src="js/bootstap.min.js" type="text/javascript">
+</script>
+</body>
+
+</html>

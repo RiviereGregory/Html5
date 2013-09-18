@@ -1,0 +1,52 @@
+body{
+	font-family: 'Kavoon', cursive;
+}
+div{
+	margin:0 auto;
+	
+}
+.row {
+	width:200px;
+	height:200px;
+	border:1px solid #960;
+}
+
+.row2 {
+	width:150px;
+	height:150px;
+	border:1px solid #633;
+
+}
+.content{
+	
+}
+#zone1{
+	margin:25px 10px 0 15px;
+	float:right;	
+	clear:both;
+	text-align:center;
+	color:#c63;
+	background:#c2c2aa;
+	-webkit-border-radius: 30px;    
+	border-radius: 30px;
+}
+
+#zone1:hover {
+	background: url(http://gifdrole.com/humourger200x200/bv000075.gif) #000 !important;
+}
+
+#zone2{
+	margin:25px 10px 0 15px;
+	float:left;
+	clear:right;
+	font-family: 'Cinzel Decorative', cursive;
+}
+
+#zone2 .row2 {
+	
+}
+
+#paragraphe{
+	font-weight:bold;
+	padding:25px 10px 0 15px;
+}
