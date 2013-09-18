@@ -232,11 +232,14 @@
 		var j = jQuery.noConflict();
 		var nom = j('#nomid').val();
 		
+		// Variable erreur
+		var error = false;
 		// test si le nom est vide
 		if(!nom){
 			//alert('Veuillez saisir votre nom ');
 			j('#namehelp').removeClass('hide');		
-			j('#namegroup').addClass('has-error');				
+			j('#namegroup').addClass('has-error');	
+			error =true;			
 		}else{
 			j('#namehelp').addClass('hide');		
 			j('#namegroup').addClass('has-success');
@@ -248,10 +251,15 @@
 		if(!prenom){
 			//alert('Veuillez saisir votre nom ');
 			j('#prenomhelp').removeClass('hide');		
-			j('#prenomgroup').addClass('has-error');				
+			j('#prenomgroup').addClass('has-error');
+			error =true;			
 		}else{
 			j('#prenomhelp').addClass('hide');		
 			j('#prenomgroup').addClass('has-success');
+		}
+		
+		if(!error){
+			j('#myform').submit();
 		}
 		
 	}
