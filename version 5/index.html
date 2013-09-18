@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BOOTSTRAP 3</title>
 <link href='http://fonts.googleapis.com/css?family=Kavoon' rel='stylesheet' type='text/css'>
@@ -142,11 +142,11 @@
 					<span id="prenomhelp" class="help-block hide">Veuillez saisir votre prenom </span>
 				</div>
 			</div>
-			<div class="row ">
-				<div class="form-group col-lg-5">
-					<label class="control-label" for="messageid">Votre message :</label>
-					<textarea class="form-control" name="message" id="messageid"> 
-					</textarea>
+			<div class="row">
+				<div id="messagegroup" class="form-group col-lg-5">
+				      <label class="control-label" for="messageid">Votre message : </label>
+				      <textarea class="form-control" placeholder="Veuillez saisir votre message" name="message" id="messageid"></textarea>
+				      <span id="messagehelp" class="help-block hide">Veuillez sasir votre message !</span>
 				</div>
 			</div>
 			<div class="row">
@@ -231,6 +231,8 @@
 		// jQuery
 		var j = jQuery.noConflict();
 		var nom = j('#nomid').val();
+		var prenom = j('#prenomid').val();
+		var message = j('#messageid').val();
 		
 		// Variable erreur
 		var error = false;
@@ -244,12 +246,9 @@
 			j('#namehelp').addClass('hide');		
 			j('#namegroup').addClass('has-success');
 		}
-		
-		var prenom = j('#prenomid').val();
-		
-		// test si le nom est vide
+				
+		// test si le prenom est vide
 		if(!prenom){
-			//alert('Veuillez saisir votre nom ');
 			j('#prenomhelp').removeClass('hide');		
 			j('#prenomgroup').addClass('has-error');
 			error =true;			
@@ -257,9 +256,33 @@
 			j('#prenomhelp').addClass('hide');		
 			j('#prenomgroup').addClass('has-success');
 		}
+				
+		// test si le message est vide
+		if(!message){
+			j('#messagehelp').removeClass('hide');		
+			j('#messagegroup').addClass('has-error');
+			error =true;			
+		}else{
+			j('#messagehelp').addClass('hide');		
+			j('#messagegroup').addClass('has-success');
+		}
 		
 		if(!error){
-			j('#myform').submit();
+			//j('#myform').submit();
+			
+			// Creation d'un tableau
+			var mycars = new Array();
+			mycars[0] = "saab";
+			mycars[1] = "Volvo";
+			mycars[2] = "BMW";
+			alert(mycars);			
+			// Création d'un objet
+			person = new Object();
+			person.firstname="John";
+			person.lastname="Doe";
+			person.age=50;
+			person.eyecolor="blue";
+			alert(person.toSource());
 		}
 		
 	}
