@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+body{
+	padding-top:70px;
+	font-family: 'Kavoon', cursive;
+}
+
+/*permet de derouler les sous menus au survol*/
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+	display: block;
+}
+
+/*Permet de changer les puces en images*/
+#contents ul.level1 li{
+	list-style:none;
+	margin-left:0px;
+	padding-left:13px;
+	background-image:url(../imgs/bullet-eef.png);
+	background-repeat:no-repeat;
+	background-position: 0 .5em;
+	word-wrap:normal;
+	white-space:pre-line;
+	
+}
+
+#contents ul.level2 li{
+	background-image:url(../imgs/bullet-eef2.png);	
+}
+
+#contents ul.level3 li{
+	background-image:url(../imgs/bullet-eef3.png);	
+}
+
+.red {
+	color:#ff0000;
+}

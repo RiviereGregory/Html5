@@ -1,0 +1,262 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOOTSTRAP 3</title>
+<link href='http://fonts.googleapis.com/css?family=Kavoon' rel='stylesheet' type='text/css'>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<!--[if IE 7]>
+	<link href="css/font-awesome-ie7.min.css" rel="stylesheet" type="text/css">
+<! [endif]-->
+
+<link href='css/main.css' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<!--  collpase pour le redimensionnement de la fenetre et permet d'afficher un bouton avec des lignes-->
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand" href="#">Project BootStrap</a>
+		</div>
+		<!-- collpase pour pouvoir etre active grace au bouton de dessus-->
+		 <div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav ">
+				<li class="active"><a href="#">Link</a></li>
+				<li><a href="#">Link</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Action</a></li>
+						<li><a href="#">Another action</a></li>
+						<li><a href="#">Something else here</a></li>
+						<li><a href="#">Separated link</a></li>
+					</ul>
+				</li>
+			</ul>	
+		 </div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">Column 1<br /><button class="btn" id="button1"><i class="icon-linux icon-2x red">
+		</i>&nbsp;Bouton Normal</button>
+		</div>
+		<div class="col-md-4">Column 2<br /><button class="btn btn-warning btn-sm" id="button2">Bouton Warning</button>
+		</div>
+		<div class="col-md-4">Column 3<br /><button class="btn btn-danger btn-lg" id="button3">Bouton Danger</button>
+		</div>
+
+	</div>
+	
+	<br />
+	<!-- Permet d'ecrireavec jquery qd on appuie sur le bouton 2-->
+	<div id="message" style="border:1px solid #000; width:200px;height:150px;"></div>		
+	<br />
+	
+	<div class="row">
+		<div class="col-md-12" id="contents">
+			<!--  well permet de faire une zone grise-->
+			<ul class="level1 well well-sm">
+				<li>Liste à puce ligne 1</li>
+				<li>Liste à puce ligne 2</li>
+				<ul class="level2">
+					<li>Liste à puce ligne 1</li>
+					<li>Liste à puce ligne 2</li>
+					<ul class="level3">
+						<li>Liste à puce ligne 1</li>
+						<li>Liste à puce ligne 2</li>
+						<li>Liste à puce ligne 3</li>
+					</ul>
+					<li>Liste à puce ligne 3</li>
+				</ul>
+			</ul>
+			<ol>
+				<li>Liste à puce ligne 1</li>
+				<li>Liste à puce ligne 2</li>
+				<li>Liste à puce ligne 3</li>
+			</ol>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<br />
+<br />
+<br />
+
+<div class="container">
+	<div class="row">
+		<!-- Système à quatre onglets -->
+		<ul class="nav nav-tabs" id="myTab">
+			<li class="active"><a href="#home">Home</a></li>
+			<li><a href="#profile">Profile</a></li>
+			<li><a href="#messages">Messages</a></li>
+			<li><a href="#settings">Settings</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="home">Lorem Ipsum</div>
+			<div class="tab-pane" id="profile">dolor sit amet, consectetur adipiscing elit. </div>
+			<div class="tab-pane" id="messages">Sed dapibus laoreet dui, posuere hendrerit eros fringilla porttitor</div>
+			<div class="tab-pane" id="settings">Proin dapibus elementum lectus et fringilla.</div>
+		</div>
+	
+	</div>
+</div>
+
+<br />
+<br />
+<br />
+
+
+<div class="container">
+	<div class="row">
+		<!-- formulaire en get par defaut-->
+		<form name="myform" id="myform" action="recup.php" method="POST">
+			<div class="row">
+				<div class="form-group col-lg-5" id="namegroup">
+					<label  class="control-label"  for="nomid">Entrez votre nom :</label>
+					<input class="form-control" type="text" placeholder="Veuillez saisir ...." name="nom" id="nomid">
+					<span id="namehelp" class="hide">Veuillez saisir votre nom </span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-lg-5" id="prenomgroup">
+					<label   class="control-label" for="prenomid">Entrez votre prénom :</label>
+					<input   class="form-control" type="text" placeholder="Veuillez saisir ...." name="prenom" id="prenomid">
+					<span id="prenomhelp" class="hide">Veuillez saisir votre prenom </span>
+				</div>
+			</div>
+			<div class="row ">
+				<div class="form-group col-lg-5">
+					<label class="control-label" for="messageid">Votre message :</label>
+					<textarea class="form-control" name="message" id="messageid"> 
+					</textarea>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-5">
+					<!-- button pour pouvoir passer une commande js au sinon utiliser submit dans type -->
+					<!--<input type="button" class="btn" onclick="document.forms['myform'].submit();" value="Envoyer">-->
+					
+					<!-- bouton qui appelle une fonction-->
+					<input type="button" class="btn" onclick="validateForm();" value="Envoyer">
+				</div>
+			</div>
+		
+		</form>	
+	</div>
+</div>
+
+
+<br />
+<br />
+<br />
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/bootstrap.min.js" type="text/javascript"></script>
+
+<!-- script jquery pour le système à quatre onglets-->
+<script type="text/javascript">
+	var j = jQuery.noConflict();
+	
+	// Permet de n'executer le code que si le fichier jquery est chargé
+	j(document).ready(function(){
+	
+		// Envoie un message dans une balise html lorsque l'on click sur le bouton2
+		j('#button2').on('click', function(){
+			j('#message').html('<h1>c\'est jQuery qui m\'a créé</h1>');
+			// Permet de cacher le bouton 1
+			j('#button1').addClass('hide');
+		});
+		
+		j('#button3').on('click', function(){
+			j('#message').text('bouton 1');
+			// Permet de decacher le bouton 1
+			j('#button1').removeClass('hide');
+		});
+	
+		// Permet d'avoir un popup lorsque l'on click sur le bouton1
+		j('#button1').on('click', function(){
+			var texto = 'lorem ipsum dolore sit amet';
+			// Permet de saisir du texte dans un popup
+			var test = prompt(texto);
+			// Declenche le popup
+			alert(test);
+			if(confirm('Voulez vous boire un coup ?')){
+				alert('super');
+			}else {
+				alert('Dommage!');
+			}
+		});
+		
+		// Permet de selectionner le dernier onglet
+		j('#myTab a:last').tab('show');
+		
+		// Permet de pouvoir clicker sur les onglets
+		j('#myTab a').click(function (e){
+			e.preventDefault();
+			j(this).tab('show');
+		});
+		
+	});
+	// Fonction pour le test des champs du formulaire
+	function validateForm() {
+		// 3 methode pour recuperer la variable nom
+		
+		// ancienne version
+		/*
+		var myform = document.forms['myform'];
+		var nom = myform.elements['nom'].value;
+		*/
+		
+		//nouvelle version
+		//var nom = document.getElementById('nomid').value;
+		
+		// jQuery
+		var j = jQuery.noConflict();
+		var nom = j('#nomid').val();
+		
+		// test si le nom est vide
+		if(!nom){
+			//alert('Veuillez saisir votre nom ');
+			j('#namehelp').removeClass('hide');		
+			j('#namegroup').addClass('has-error');				
+		}else{
+			j('#namehelp').addClass('hide');		
+			j('#namegroup').addClass('has-success');
+		}
+		
+		var prenom = j('#prenomid').val();
+		
+		// test si le nom est vide
+		if(!prenom){
+			//alert('Veuillez saisir votre nom ');
+			j('#prenomhelp').removeClass('hide');		
+			j('#prenomgroup').addClass('has-error');				
+		}else{
+			j('#prenomhelp').addClass('hide');		
+			j('#prenomgroup').addClass('has-success');
+		}
+		
+	}
+</script>
+
+</body>
+
+</html>
