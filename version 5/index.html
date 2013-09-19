@@ -98,6 +98,8 @@
 					
 					<!-- bouton qui appelle une fonction-->
 					<input type="button" class="btn" onclick="validateForm();" value="Envoyer">
+					<!-- permet de cacher l'image jusqu'a ce que l'on click sur le bouton grace a la fonction  removeClass-->
+					&nbsp;<img src="imgs/ajax-loader.gif" alt="loader_image" class="hide" id="loaderimg">
 				</div>
 			</div>
 		
@@ -293,6 +295,9 @@
 		}
 		
 		if(!error){
+			// Permet de retire la class hide de l'image donc de l'afficher
+			j('#loaderimg').removeClass('hide');		
+			
 			// Permet d'envoyer les données du formulaire en chaine de caractere
 			var myformData = j('#myform').serialize();
 			alert(myformData);
@@ -301,6 +306,8 @@
 			// l'url ou on l'envoi
 			// le info que l'on envoi
 			// et la reponse en cas de reussite que l'on recoit 
+			// Permet de mettre un delai pour afficher l'image car aussinon la requete est trop rapide
+			setTimeout(function(){
 			j.ajax({
 				type:'POST',
 				url:'recup.php',
@@ -310,7 +317,7 @@
 					j("#myformdiv").html('<span id="confirmMsg">Formulaire Soumis correctements</span>');
 				}
 			
-			});
+			});},3000);
 			// Permet de rester sur la page
 			return false;		
 		}
