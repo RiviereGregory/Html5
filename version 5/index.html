@@ -26,7 +26,7 @@
 <noscript>
 <div><h1>Veuillez activer le javascript pour le bon fonctionnement du site </h1> </div>
 </noscript>
-
+<!-- Navbar-->
 <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
@@ -56,9 +56,7 @@
 		 </div>
 	</div>
 </div>
-
-
-
+<!-- Formulaire-->
 <div class="container" >
 	<!-- mettre display:none et pas hide pour pouvoir utiliser les effets de transition avec fadeIn--> 
 	<div  id="myformdiv" style="display: none;">
@@ -115,14 +113,10 @@
 		</div>
 	</div>
 </div>
-
-
 <br />
 <br />
 <br />
-
-
-
+<!-- Boutons -->
 <div class="container">
 	<div class="row">
 		<div class="col-md-4">Column 1<br /><button class="btn" id="button1"><i class="icon-linux icon-2x red">
@@ -132,14 +126,12 @@
 		</div>
 		<div class="col-md-4">Column 3<br /><button class="btn btn-danger btn-lg" id="button3">Bouton Danger</button>
 		</div>
-
-	</div>
-	
+	</div>	
 	<br />
 	<!-- Permet d'ecrireavec jquery qd on appuie sur le bouton 2-->
 	<div id="message" style="border:1px solid #000; width:200px;height:150px;"></div>		
 	<br />
-	
+	<!-- Liste puce perso -->
 	<div class="row">
 		<div class="col-md-12" id="contents">
 			<!--  well permet de faire une zone grise-->
@@ -165,18 +157,12 @@
 		</div>
 	</div>
 </div>
-
-
-
-
-
 <br />
 <br />
 <br />
-
+<!-- Système à quatre onglets -->
 <div class="container">
 	<div class="row">
-		<!-- Système à quatre onglets -->
 		<ul class="nav nav-tabs" id="myTab">
 			<li class="active"><a href="#home">Home</a></li>
 			<li><a href="#profile">Profile</a></li>
@@ -192,11 +178,9 @@
 	
 	</div>
 </div>
-
 <br />
 <br />
 <br />
-
 <!-- Utilisation du filtre avec isotope-->
 <div class="container">
 	<div class="row">
@@ -206,8 +190,7 @@
 				<li><a href="#" data-filter="*" class="selected">show all</a></li>
 				<li><a href="#" data-filter=".number">numbers</a></li>
 				<li><a href="#" data-filter=".alpha">alphas</a></li>
-			      </ul>
-
+			</ul>
 			<div id="isotopejquery">
 				<div class="item number col-md-1">1</div>
 				<div class="item alpha col-md-1">a</div>
@@ -222,7 +205,6 @@
 <br />
 <br />
 <br />
-
 <!-- déclaration de la modale utilise dans js-->
 <!-- data-backdrop="static"  permet de fermer la fenetre qu'en appuyant sur les boutons -->
 <div id="modal1" class="modal fade" data-backdrop="static">
@@ -236,13 +218,13 @@
 				<p>One fine body&hellip;</p>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal" id="boutonmodalclose">Close</button>
 				<button type="button" class="btn btn-primary">Save changes</button>
 			</div>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
+<!-- Script javascript-->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/select2.js"></script>
@@ -313,6 +295,13 @@
 			j('#message').text('bouton 1');
 			// Permet de decacher le bouton 1
 			j('#button1').removeClass('hide');
+			
+			// Permet de modifier le titre de la modale
+			j('#modal1 .modal-title').text('Ma nouvelle fenetre');
+			// Permet de modifier le corp de la modale
+			j('#modal1 .modal-body').html('<h1>Lorem Ipsum dolores site amet</h1>');
+			//  Modifie le bouton close de la modale
+			j('#boutonmodalclose').text('Nouveau label');
 			// Charge la modale
 			j(' #modal1').modal('show');
 		});
