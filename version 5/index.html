@@ -99,7 +99,7 @@
 					<!-- bouton qui appelle une fonction-->
 					<input type="button" class="btn" onclick="validateForm();" value="Envoyer">
 					<!-- permet de cacher l'image jusqu'a ce que l'on click sur le bouton grace a la fonction  removeClass-->
-					&nbsp;<img src="imgs/ajax-loader.gif" alt="loader_image" class="hide" id="loaderimg">
+					&nbsp;&nbsp;<img src="imgs/ajax-loader_1.gif" alt="loader_image" class="hide" id="loaderimg">
 				</div>
 			</div>
 		
@@ -257,6 +257,9 @@
 	function validateForm() {		
 		// jQuery
 		var j = jQuery.noConflict();
+		// Permet de retire la class hide de l'image donc de l'afficher
+		j('#loaderimg').removeClass('hide');		
+		
 		var nom = j('#nomid').val();
 		var prenom = j('#prenomid').val();
 		var message = j('#messageid').val();
@@ -294,10 +297,11 @@
 			j('#messagegroup').addClass('has-success');
 		}
 		
-		if(!error){
-			// Permet de retire la class hide de l'image donc de l'afficher
-			j('#loaderimg').removeClass('hide');		
-			
+		if(error){
+			j('#loaderimg').addClass('hide');		
+		}
+		
+		if(!error){			
 			// Permet d'envoyer les données du formulaire en chaine de caractere
 			var myformData = j('#myform').serialize();
 			alert(myformData);
@@ -308,16 +312,18 @@
 			// et la reponse en cas de reussite que l'on recoit 
 			// Permet de mettre un delai pour afficher l'image car aussinon la requete est trop rapide
 			setTimeout(function(){
-			j.ajax({
-				type:'POST',
-				url:'recup.php',
-				data:myformData,
-				success:function(msg){
-					console.log(msg);
-					j("#myformdiv").html('<span id="confirmMsg">Formulaire Soumis correctements</span>');
-				}
+				j.ajax({
+					type:'POST',
+					url:'recup.php',
+					data:myformData,
+					success:function(msg){
+						console.log(msg);
+						j("#myformdiv").html('<span id="confirmMsg">Formulaire Soumis correctements</span>');
+					}
+				
+				});
+			} ,3000);
 			
-			});},3000);
 			// Permet de rester sur la page
 			return false;		
 		}
