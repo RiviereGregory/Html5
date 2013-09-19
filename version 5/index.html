@@ -51,6 +51,67 @@
 	</div>
 </div>
 
+
+
+<div class="container" id="myformdiv">
+	<div class="row">
+		<!-- formulaire en get par defaut-->
+		<form name="myform" id="myform" action="recup.php" method="POST">
+			<div class="row">
+				<div class="form-group col-lg-5" id="namegroup">
+					<label  class="control-label"  for="nomid">Entrez votre nom :</label>
+					<input class="form-control" type="text" placeholder="Veuillez saisir ...." name="nom" id="nomid">
+					<span id="namehelp" class="help-block hide">Veuillez saisir votre nom </span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-lg-5" id="prenomgroup">
+					<label   class="control-label" for="prenomid">Entrez votre prénom :</label>
+					<input   class="form-control" type="text" placeholder="Veuillez saisir ...." name="prenom" id="prenomid">
+					<span id="prenomhelp" class="help-block hide">Veuillez saisir votre prenom </span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-5" id="villegroup">
+					<label   class="control-label" for="villeid">Entrez votre ville :</label>
+					<select  name="ville" id="villeid">
+						<option></option>
+						<option value="1">Marseille</option>
+						<option value="2">Lyon</option>
+						<option value="3">Aix</option>
+						<option value="4">Aubagne</option>
+					</select>
+					<span id="villehelp" class="help-block hide">Veuillez choisir votre ville</span>
+				</div>
+			</div>
+			<div class="row">
+				<div id="messagegroup" class="form-group col-lg-5">
+				      <label class="control-label" for="messageid">Votre message : </label>
+				      <textarea class="form-control" placeholder="Veuillez saisir votre message" name="message" id="messageid"></textarea>
+				      <span id="messagehelp" class="help-block hide">Veuillez sasir votre message !</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-5">
+					<!-- button pour pouvoir passer une commande js au sinon utiliser submit dans type -->
+					<!--<input type="button" class="btn" onclick="document.forms['myform'].submit();" value="Envoyer">-->
+					
+					<!-- bouton qui appelle une fonction-->
+					<input type="button" class="btn" onclick="validateForm();" value="Envoyer">
+				</div>
+			</div>
+		
+		</form>	
+	</div>
+</div>
+
+
+<br />
+<br />
+<br />
+
+
+
 <div class="container">
 	<div class="row">
 		<div class="col-md-4">Column 1<br /><button class="btn" id="button1"><i class="icon-linux icon-2x red">
@@ -126,62 +187,6 @@
 <br />
 
 
-<div class="container">
-	<div class="row">
-		<!-- formulaire en get par defaut-->
-		<form name="myform" id="myform" action="recup.php" method="POST">
-			<div class="row">
-				<div class="form-group col-lg-5" id="namegroup">
-					<label  class="control-label"  for="nomid">Entrez votre nom :</label>
-					<input class="form-control" type="text" placeholder="Veuillez saisir ...." name="nom" id="nomid">
-					<span id="namehelp" class="help-block hide">Veuillez saisir votre nom </span>
-				</div>
-			</div>
-			<div class="row">
-				<div class="form-group col-lg-5" id="prenomgroup">
-					<label   class="control-label" for="prenomid">Entrez votre prénom :</label>
-					<input   class="form-control" type="text" placeholder="Veuillez saisir ...." name="prenom" id="prenomid">
-					<span id="prenomhelp" class="help-block hide">Veuillez saisir votre prenom </span>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-5" id="villegroup">
-					<label   class="control-label" for="villeid">Entrez votre ville :</label>
-					<select  name="ville" id="villeid">
-						<option></option>
-						<option value="1">Marseille</option>
-						<option value="2">Lyon</option>
-						<option value="3">Aix</option>
-						<option value="4">Aubagne</option>
-					</select>
-					<span id="villehelp" class="help-block hide">Veuillez choisir votre ville</span>
-				</div>
-			</div>
-			<div class="row">
-				<div id="messagegroup" class="form-group col-lg-5">
-				      <label class="control-label" for="messageid">Votre message : </label>
-				      <textarea class="form-control" placeholder="Veuillez saisir votre message" name="message" id="messageid"></textarea>
-				      <span id="messagehelp" class="help-block hide">Veuillez sasir votre message !</span>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-5">
-					<!-- button pour pouvoir passer une commande js au sinon utiliser submit dans type -->
-					<!--<input type="button" class="btn" onclick="document.forms['myform'].submit();" value="Envoyer">-->
-					
-					<!-- bouton qui appelle une fonction-->
-					<input type="button" class="btn" onclick="validateForm();" value="Envoyer">
-				</div>
-			</div>
-		
-		</form>	
-	</div>
-</div>
-
-
-<br />
-<br />
-<br />
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -228,7 +233,9 @@
 			// Permet de saisir du texte dans un popup
 			var test = prompt(texto);
 			// Declenche le popup
-			alert(test);
+			//alert(test);
+			// Affiche la variable test dans la console de firefox
+			console.log(test);
 			if(confirm('Voulez vous boire un coup ?')){
 				alert('super');
 			}else {
@@ -299,8 +306,30 @@
 		}
 		
 		if(!error){
+			// Permet d'envoyer les données du formulaire en chaine de caractere
+			var myformData = j('#myform').serialize();
+			alert(myformData);
+			// Utilisation d'AJAX pour l'envoi du formulaire
+			// Le type d'envoi en post
+			// l'url ou on l'envoi
+			// le info que l'on envoi
+			// et la reponse en cas de reussite que l'on recoit 
+			j.ajax({
+				type:'POST',
+				url:'recup.php',
+				data:myformData,
+				success:function(msg){
+					console.log(msg);
+					j("#myformdiv").html('<span id="confirmMsg">Formulaire Soumis correctements</span>');
+				}
+			
+			});
+			// Permet de rester sur la page
+			return false;		
+		
 			//j('#myform').submit();
 			
+			/*
 			// Creation d'un tableau
 			var mycars = new Array();
 			mycars[0] = "saab";
@@ -314,6 +343,8 @@
 			person.age=50;
 			person.eyecolor="blue";
 			alert(person.toSource());
+			
+			*/
 		}
 		
 	}
