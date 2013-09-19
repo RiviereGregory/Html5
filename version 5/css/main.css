@@ -26,6 +26,12 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 #contents ul.level2 li{
 	background-image:url(../imgs/bullet-eef2.png);	
 }
+/*Permet de modifier l'image de la liste qd on passe la souris dessus*/
+#contents ul.level2 li:hover{
+	
+	background-image:url(../imgs/bullet-eef3.png);	
+
+}
 
 #contents ul.level3 li{
 	background-image:url(../imgs/bullet-eef3.png);	
