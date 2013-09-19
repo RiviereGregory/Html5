@@ -53,3 +53,16 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
     .tinynav { display: block }
     #nav { display: none }
 }
+
+#ulisotope ul.level1 li{
+	list-style:none;
+	margin-left:0px;
+	padding-left:13px;
+	background-image:url(../imgs/bullet-eef.png);
+	background-repeat:no-repeat;
+	background-position: 0 .5em;
+	word-wrap:normal;
+	white-space:pre-line;
+	
+}
+
