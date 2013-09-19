@@ -232,8 +232,6 @@
 			var texto = 'lorem ipsum dolore sit amet';
 			// Permet de saisir du texte dans un popup
 			var test = prompt(texto);
-			// Declenche le popup
-			//alert(test);
 			// Affiche la variable test dans la console de firefox
 			console.log(test);
 			if(confirm('Voulez vous boire un coup ?')){
@@ -254,18 +252,7 @@
 		
 	});
 	// Fonction pour le test des champs du formulaire
-	function validateForm() {
-		// 3 methode pour recuperer la variable nom
-		
-		// ancienne version
-		/*
-		var myform = document.forms['myform'];
-		var nom = myform.elements['nom'].value;
-		*/
-		
-		//nouvelle version
-		//var nom = document.getElementById('nomid').value;
-		
+	function validateForm() {		
 		// jQuery
 		var j = jQuery.noConflict();
 		var nom = j('#nomid').val();
@@ -326,25 +313,6 @@
 			});
 			// Permet de rester sur la page
 			return false;		
-		
-			//j('#myform').submit();
-			
-			/*
-			// Creation d'un tableau
-			var mycars = new Array();
-			mycars[0] = "saab";
-			mycars[1] = "Volvo";
-			mycars[2] = "BMW";
-			alert(mycars);			
-			// Création d'un objet
-			person = new Object();
-			person.firstname="John";
-			person.lastname="Doe";
-			person.age=50;
-			person.eyecolor="blue";
-			alert(person.toSource());
-			
-			*/
 		}
 		
 	}
